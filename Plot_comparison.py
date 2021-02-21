@@ -3,9 +3,8 @@ from numpy import *
 from pylab import *
 from astropy.io import fits as pyfits
 import sys
-sys.path.append('../N2H+/Tobin_IRAS16253_data/HFS_fitting/')
+sys.path.append('Functions/')
 import Radiative_n2hp as n2hp_fun
-sys.path.append('../NH3/GBT_Friesen/HFS_fitting/')
 import Radiative_nh3 as nh3_fun
 from astropy.constants import c
 c=c.to('km/s').value
