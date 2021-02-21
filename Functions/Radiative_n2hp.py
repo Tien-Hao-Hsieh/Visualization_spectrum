@@ -8,7 +8,7 @@ k_B=k_B.cgs.value
 h=h.cgs.value
 Tbg=2.73
 
-HFS=rot90(loadtxt('n2hp_hfs_Pagani09'))[::-1]
+HFS=rot90(loadtxt('Functions/n2hp_hfs_Pagani09'))[::-1]
 RestFre=HFS[0][4]		# in GHz
 HFS_v=vstack(((RestFre-HFS[0])/RestFre*c,HFS[1]))	# in cgs (cm/s)
 

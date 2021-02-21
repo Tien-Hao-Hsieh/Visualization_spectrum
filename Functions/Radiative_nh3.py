@@ -8,7 +8,7 @@ k_B=k_B.cgs.value
 h=h.cgs.value
 Tbg=2.73
 
-HFS=rot90(loadtxt('nh3_hfs_Pagani07'))[::-1]
+HFS=rot90(loadtxt('Functions/nh3_hfs_Pagani07'))[::-1]
 RestFre=HFS[0][0]		# in GHz (shall be insert in Image.py when doing clean
 print 'nu=',RestFre
 HFS_v=HFS[:,1:]	# in cgs (cm/s)

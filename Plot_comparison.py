@@ -47,14 +47,14 @@ class Cursor():
 
 ############################################### NH3 ########################################
 #mom0=nan_to_num(pyfits.getdata('../NH3/GBT_Friesen/Moment0/IRAS16253_mom0.fits')[0][0])
-mom0=nan_to_num(pyfits.getdata('../N2H+/Tobin_IRAS16253_data/HFS_fitting/DCE185_HFS_vlsr.fits')[0][0])
-noi=loadtxt('../NH3/GBT_Friesen/Moment0/Noise/Noise_table',usecols=[1])
+mom0=nan_to_num(pyfits.getdata('Data/N2H+/Tobin_IRAS16253_data/HFS_fitting/DCE185_HFS_vlsr.fits')[0][0])
+noi=loadtxt('Data/NH3/GBT_Friesen/Moment0/Noise/Noise_table',usecols=[1])
 SN=7
 Mask=zeros(shape(mom0))
 Mask[50:250,50:250]=1
 Mask[mom0<SN*noi]=0
 
-FITS='../NH3/GBT_Friesen/To_brightness_temperature/GBT100m.Tbrightness.fits'
+FITS='Data/NH3/GBT_Friesen/To_brightness_temperature/GBT100m.Tbrightness.fits'
 fits=pyfits.open(FITS)
 data=fits[0].data
 header=fits[0].header
@@ -66,13 +66,13 @@ N_Fre=header['NAXIS3']
 Fre_li=arange(RefFre-CDELT_F*(RefPix-1),RefFre+CDELT_F*(-RefPix+N_Fre+0.5),CDELT_F)
 Vel_li_nh3=( RestFre-Fre_li )/RestFre*(c)
 
-Fit_result=load('../NH3/GBT_Friesen/HFS_fitting/Output_HFSfitting.npy')
-Fit_result_err=load('../NH3/GBT_Friesen/HFS_fitting/Output_HFSfitting_err.npy')
+Fit_result=load('Data/NH3/GBT_Friesen/HFS_fitting/Output_HFSfitting.npy')
+Fit_result_err=load('Data/NH3/GBT_Friesen/HFS_fitting/Output_HFSfitting_err.npy')
 ############################################### NH3 #########################################
  
                                                                           
 ############################################### N2H ########################################
-FITS='../N2H+/Tobin_IRAS16253_data/To_brightness_temperature/IRAM30m.Tbrightness.fits'
+FITS='Data/N2H+/Tobin_IRAS16253_data/To_brightness_temperature/IRAM30m.Tbrightness.fits'
 fits2=pyfits.open(FITS)
 data2=fits2[0].data[0]
 header=fits2[0].header
@@ -82,8 +82,8 @@ RefPix=header['CRPIX3']
 N_Fre=header['NAXIS3']
 Vel_li_n2hp=arange(RefFre-CDELT_F*(RefPix-1),RefFre+CDELT_F*(-RefPix+N_Fre+0.5),CDELT_F)/10**3       # m to km/s
 
-Fit_result2=load('../N2H+/Tobin_IRAS16253_data/HFS_fitting/Output_HFSfitting.npy')
-Fit_result_err2=load('../N2H+/Tobin_IRAS16253_data/HFS_fitting/Output_HFSfitting_err.npy')
+Fit_result2=load('Data/N2H+/Tobin_IRAS16253_data/HFS_fitting/Output_HFSfitting.npy')
+Fit_result_err2=load('Data/N2H+/Tobin_IRAS16253_data/HFS_fitting/Output_HFSfitting_err.npy')
 ############################################### N2H #########################################
  
                                                                           
