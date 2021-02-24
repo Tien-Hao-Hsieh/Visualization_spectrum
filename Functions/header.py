@@ -16,11 +16,12 @@ def read_wave(header,lineFre=''):
         print('Error: check rest frequ')
     chan=arange(1,NAXIS3+1,1.)
 
-    if header['CTYPE3']=='FREQ':
+    if header['CTYPE3'].strip()=='FREQ':
         freq_li=(chan-CRPIX3)*CDELT3+CRVAL3
         vel_li=-(freq_li-RESTFREQ)/RESTFREQ*con.c.to('km/s').value
-    if header['CTYPE3']=='VRAD':
+    if header['CTYPE3'].strip() in ['VRAD','VELO-LSR']:
         vel_li=(chan-CRPIX3)*CDELT3+CRVAL3
+	vel_li=vel_li/1000
         freq_li=RESTFREQ*(1-vel_li/con.c.to('m/s').value)
 
     if lineFre!='':
