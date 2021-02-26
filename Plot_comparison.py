@@ -23,6 +23,7 @@ class Cursor():
 	y=argmin(abs(dec-dec_nh3))
 	ax2=axes([0.55,0.09,0.43,0.38])
 	ax2.cla()
+	ax2.annotate(r'NH3$_3$ (1,1)',xycoords='axes fraction',xy=(0.97,0.92),fontsize=10,ha='right')
 	spe=data[:,int(y),int(x)]
 	ax2.step(Vel_li_nh3,spe,c='#8E8E8E',lw=2,where='mid')
 	popt2=Fit_result[int(y),int(x)]
@@ -33,6 +34,7 @@ class Cursor():
 	y=argmin(abs(dec-dec_n2hp))
 	ax3=axes([0.55,0.59,0.43,0.38])
 	ax3.cla()
+	ax3.annotate(r'N$_2$H$^+$ J=1-0',xycoords='axes fraction',xy=(0.97,0.92),fontsize=10,ha='right')
 	spe=data2[:,int(y),int(x)]
 	ax3.step(Vel_li_n2hp,spe,c='b',lw=2,where='mid')
 	popt3=Fit_result2[int(y),int(x)]
